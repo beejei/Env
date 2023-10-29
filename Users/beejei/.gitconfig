@@ -1,0 +1,33 @@
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[user]
+	name = Beejei Kim
+	email = develop.bjkim@gmail.com
+[pull]
+	rebase = true
+
+[mergetool]
+  prompt = false
+  keepTemporaries = false
+  trustExitCode = false
+  keepBackup = false
+[difftool]
+  prompt = false
+[diff]
+  tool = araxis
+[merge]
+  tool = araxis
+[mergetool "araxis"]
+  path = /Applications/Araxis Merge.app/Contents/Utilities/compare
+[difftool "araxis"]
+  path = /Applications/Araxis Merge.app/Contents/Utilities/compare
+
+[alias]
+  ad = difftool --tool=araxis --dir-diff
+  ads = difftool --tool=araxis --dir-diff --staged
+  logline = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[init]
+  defaultBranch = main
